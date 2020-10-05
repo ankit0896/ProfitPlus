@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Profit Plus</string>
+    <string name="description">Description</string>
+    <string name="yourEmail">Your Mail ID</string>
+    <string name="yourPassword">Password</string>
+    <string name="forgotPassword">Forgot Password ?</string>
+    <string name="login">Login</string>
+    <string name="newuser">New User Register</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="emailID">Email ID</string>
+    <string name="mobileNumber">Mobile Number</string>
+    <string name="gender">Gender</string>
+    <string name="country">Country</string>
+    <string name="confirmyourPassword">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="username">User Name</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="marketTutorial">Market Tutorial</string>
+    <string name="myaccount">My Account</string>
+    <string name="offers">Offers</string>
+    <string name="refer"><![CDATA[Refer & Earn]]></string>
+    <string name="privacypolicy">Privacy Policy</string>
+    <string name="termscondition"><![CDATA[Term & Condition]]></string>
+    <string name="faqs">FAQs</string>
+    <string name="complaint">Complats/Suggestions</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="searchItem">Lorem Pvt Ltd.</string>
+    <string name="searchText">Search</string>
+    <string name="watchlist">Watchlist</string>
+    <string name="portfolio">Portfolio</string>
+    <string name="order">Order</string>
+    <string name="fund">Funds</string>
+    <string name="research">Research</string>
+
+
+    <string-array name="menu_option">
+        <item>Dashboard</item>
+        <item>Market Tutorial</item>
+        <item>My Account</item>
+        <item>Offers</item>
+        <item>Refer &amp; Earn</item>
+        <item>Privacy Policy</item>
+        <item>Terms &amp; Condition</item>
+        <item>FAQs</item>
+        <item>Complants/Suggestions</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="searchnotfound">Search Not Found</string>
+    <string name="privacyandpolicy"><![CDATA[Privacy & Policy]]></string>
+    <string name="termandcondition">Terms &amp; Condition</string>
+    <string name="referandearn"><![CDATA[Refer & Earn]]></string>
+    <string name="referCoder"><![CDATA[Refer & Earn Code]]></string>
+    <string name="code">DFD5464</string>
+    <string name="share">Share App</string>
+    <string name="pending">Panding</string>
+    <string name="totalearn">Total Earn</string>
+    <string name="totaluser">Total User</string>
+    <string name="shareEarning">Share Earning</string>
+</resources>

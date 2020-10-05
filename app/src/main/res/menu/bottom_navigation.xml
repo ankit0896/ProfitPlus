@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_watchlist"
+        android:title="@string/watchlist"
+        android:visible="true"/>
+
+    <item
+        android:id="@+id/navigation_portfolio"
+        android:title="@string/portfolio"
+
+        android:visible="true" />
+
+    <item
+        android:id="@+id/navigation_order"
+        android:title="@string/order"
+
+        android:visible="true"/>
+
+    <item
+        android:id="@+id/navigation_fund"
+        android:title="@string/fund"
+
+        android:visible="true"/>
+
+    <item
+        android:id="@+id/navigation_research"
+        android:title="@string/research"
+
+        android:visible="true"/>
+
+</menu>

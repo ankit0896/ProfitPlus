@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginTop="40dp"
+            android:text="@string/shareEarning"
+            android:textColor="@color/colorBlack"
+            android:layout_above="@+id/card_refer"
+            android:layout_marginBottom="50dp"></TextView>
+
+        <LinearLayout
+            android:id="@+id/card_refer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/llayout_refer"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical"
+          >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:textColor="@color/registerFontColor"
+                        android:text="@string/pending"></TextView>
+
+                    <TextView
+                        android:id="@+id/tv_re_panding"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:textColor="@color/colorBlack"
+                        android:text="$6.790"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:textColor="@color/registerFontColor"
+                        android:text="@string/totalearn"></TextView>
+
+                    <TextView
+                        android:id="@+id/tv_re_total_earn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="$7.90"
+                        android:textColor="@color/colorGreen"
+                        android:textAlignment="textStart"></TextView>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/registerFontColor"
+                        android:text="@string/totaluser"></TextView>
+
+                    <TextView
+                        android:id="@+id/tv_re_user_number"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1.6"
+                        android:background="@drawable/back_refer_number"
+                        android:text="4"
+                        android:gravity="center"
+                        android:textColor="@color/colorWhite"
+                      android:textAlignment="center"></TextView>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="1.4"
+                        android:layout_height="match_parent"></View>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llayout_refer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_centerInParent="true"
+                android:background="#c0c0c0" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="14dp"
+                android:background="#c0c0c0" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="18dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.5"
+                    android:text="@string/referCoder"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:id="@+id/tv_refer_code"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="@string/code"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorSkyBlue"
+                    android:textSize="16sp"></TextView>
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#c0c0c0" />
+
+        </LinearLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_share_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llayout_refer"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="3dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/colorRed2"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/share"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="20dp"></TextView>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>
