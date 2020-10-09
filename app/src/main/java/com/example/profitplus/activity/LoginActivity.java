@@ -12,10 +12,12 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.example.profitplus.R;
+import com.example.profitplus.presenter.SigninPresenter;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements SigninPresenter.Signin {
 
     TextView newuser,login_bnt;
+    private SigninPresenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,15 +27,13 @@ public class LoginActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(getResources().getColor(R.color.colorRed));
         }
-
+        presenter=new SigninPresenter(LoginActivity.this,LoginActivity.this);
         initView();
     }
 
     private void initView() {
         newuser = findViewById(R.id.tv_new_user);
         login_bnt = findViewById(R.id.tv_btn_login);
-
-
         clickEvents();
     }
 
@@ -50,5 +50,20 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this,HomeActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
         });
+    }
+
+    @Override
+    public void success(String response) {
+
+    }
+
+    @Override
+    public void error(String response) {
+
+    }
+
+    @Override
+    public void fail(String response) {
+
     }
 }

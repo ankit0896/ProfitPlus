@@ -22,10 +22,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/username"
-            android:fontFamily="sans-serif-light"
+            android:fontFamily="@font/gilroy_medium"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:textSize="22dp"
+            android:textSize="18dp"
             android:textColor="@color/colorWhite">
 
         </TextView>

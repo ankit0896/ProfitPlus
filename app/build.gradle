@@ -31,8 +31,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    //cardview
     implementation "androidx.cardview:cardview:1.0.0"
+    //reycleview
     implementation "androidx.recyclerview:recyclerview:1.1.0"
-
-
+    //background service
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.koushikdutta.ion:ion:2.2.1'
+    //progress dialog
+    implementation 'com.github.d-max:spots-dialog:1.1@aar'
 }

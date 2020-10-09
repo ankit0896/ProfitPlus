@@ -20,5 +20,11 @@
     <style name="MyTabTextAppearance" parent="TextAppearance.AppCompat.Button">
         <item name="android:textSize">10sp</item>
         <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/gilroy_semibold</item>
+    </style>
+    <style name="loading" parent="android:Theme.DeviceDefault.Light.Dialog">
+        <item name="DialogTitleAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="DialogSpotColor">@color/themeColor</item>
+        <item name="DialogSpotCount">5</item>
     </style>
 </resources>

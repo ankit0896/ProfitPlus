@@ -13,8 +13,8 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:src="@drawable/login_logo"></ImageView>
@@ -49,6 +49,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="4dp"
                         android:padding="8dp"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/gilroy_regular"
                         android:background="@null"
                         android:hint="@string/yourEmail"></EditText>
                 </LinearLayout>
@@ -72,6 +74,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="4dp"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:textSize="16sp"
                         android:padding="8dp"
                         android:background="@null"
                         android:hint="@string/yourPassword"></EditText>
@@ -88,11 +92,11 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:textSize="18dp"
             android:text="@string/forgotPassword"
+            android:fontFamily="@font/gilroy_medium"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@color/colorLightRed"></TextView>
+            android:textColor="@color/colorWhite"></TextView>
 
 
         <TextView
@@ -102,6 +106,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:background="@drawable/login_button_shape"
+            android:fontFamily="@font/gilroy_semibold"
             android:paddingLeft="70dp"
             android:paddingTop="12dp"
             android:paddingRight="70dp"
@@ -119,14 +124,14 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/login_fb"
                 android:layout_marginEnd="10dp"
                 ></ImageView>
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/login_g"
                 ></ImageView>
         </LinearLayout>
@@ -137,10 +142,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/gilroy_regular"
             android:layout_marginTop="60dp"
             android:layout_marginBottom="40dp"
-            android:textSize="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/colorWhite"
             android:text="@string/newuser"></TextView>
 
     </LinearLayout>

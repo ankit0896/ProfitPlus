@@ -59,4 +59,5 @@
     <string name="totalearn">Total Earn</string>
     <string name="totaluser">Total User</string>
     <string name="shareEarning">Share Earning</string>
+    <string name="loading">Please wait Loading…</string>
 </resources>
