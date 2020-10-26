@@ -1,119 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_marginStart="5dp"
     android:layout_marginTop="5dp"
     android:orientation="vertical"
+    tools:context=".view.fragments.StockFragment">
 
-    tools:context=".fragments.StockFragment">
 
-
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_faqs_questions"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="5dp"
-        android:layout_marginTop="20dp"
-
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
-            android:text="Phasellus viverra dolor"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"></TextView>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:layout_marginTop="16dp"
-            android:background="#c0c0c0" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:text="Dolor at cursus congue"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"></TextView>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:layout_marginTop="16dp"
-            android:background="#c0c0c0" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-light"
-            android:text="Curses congue"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="5dp"
-            android:gravity="end"
-            android:text="Ask"
-            android:textColor="@color/colorSkyBlue"
-            android:textStyle="normal"></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="sans-serif-light"
-            android:text="Phasellus viverra"
-            android:textColor="@color/colorBlack"
-            android:textSize="22sp"></TextView>
+        android:layout_height="0dp"
+        android:layout_weight="1"></androidx.recyclerview.widget.RecyclerView>
 
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:layout_marginTop="25dp"
-            android:background="#c0c0c0" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gilroy_bold"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="Answer"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"></TextView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textStyle="normal"
-            android:layout_marginTop="25dp"
-            android:text="Suspendisse potenti. Curabitur venenatis ele memtum elit, ut con"
-            android:textColor="@color/colorBlack"
-            android:textSize="14sp"></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textStyle="normal"
-            android:layout_marginTop="45dp"
-            android:text="TAG BSuspendisse potenti. Curabitur v enentis elementum elit, ut con. Suspendisse potenti. Curabitur venenatis elementum elit, ut con Suspendisse potenti. curabitur venenatis elementum elit,ut con"
-            android:textColor="@color/colorGrey"
-            android:textSize="14sp"></TextView>
+    <TextView
+        android:id="@+id/tv_faqs_QnAs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:text="Answers"></TextView>
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textStyle="normal"
-            android:layout_marginTop="55dp"
-            android:text="Suspendisse potenti. Curabitur venenatis elementum elit, ut con Suspendisse potenti. Curabitur venenatis elementum elit, ut con Suspendisse potenti. curabitur venenatis elementum elit,ut con"
-            android:layout_marginBottom="10dp"
-            android:textColor="@color/colorBlack"
-            android:textSize="14sp"></TextView>
-
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>

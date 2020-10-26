@@ -27,6 +27,7 @@ public class NetworkTask {
     private String url,type;
     private HashMap<String, File> postFiles;
     private HashMap<String, String> postData;
+    private String loginOtp;
     private MultiPartRequest request;
     private Boolean isShow;
 
@@ -78,6 +79,27 @@ public class NetworkTask {
             sendData();
         }
     }
+
+    // Ankit ///
+
+    public NetworkTask(Context context,String url,MultiPartRequest request,String otpData,boolean isShow){
+        this.context = context;
+        this.url=url;
+        this.request =request;
+        this.isShow = isShow;
+        this.loginOtp = otpData;
+        this.type="POST";
+        if (isConnectingToInternet()) {
+            showPopup();
+            sendData();
+        }
+    }
+
+    private void sendOtpData() {
+
+    }
+
+    ////
 
     private boolean isConnectingToInternet() {
         ConnectivityManager connectivityManager = (ConnectivityManager)

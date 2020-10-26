@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.RegistrationActivity">
+    tools:context=".view.activity.RegistrationActivity">
 
 
     <RelativeLayout
@@ -170,7 +170,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_weight="3"
                         android:layout_height="wrap_content"
                         android:hint="@string/gender"
                         android:textColorHighlight="@color/registerFontColor"
@@ -180,24 +180,20 @@
                         android:textSize="16sp"></TextView>
 
 
-                    <TextView
-                        android:id="@+id/tv_rGender"
+                    <Spinner
+                        android:id="@+id/gender_spinner"
                         android:layout_width="0dp"
-                        android:layout_weight="3.5"
+                        android:layout_weight="2"
                         android:layout_height="wrap_content"
                         android:gravity="end"
+                        android:textAlignment="textEnd"
                         android:textColorHighlight="@color/registerFontColor"
-                        android:text="Male"
                         android:textColor="@color/colorBlack"
                         android:fontFamily="@font/gilroy_medium"
-                        android:textSize="16sp"></TextView>
+                        android:textSize="16sp"></Spinner>
 
 
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="20dp"
-                        android:src="@drawable/arrow"></ImageView>
+
 
 
                 </LinearLayout>

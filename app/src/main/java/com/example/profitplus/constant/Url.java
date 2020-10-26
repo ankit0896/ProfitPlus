@@ -4,7 +4,12 @@ package com.example.profitplus.constant;
 
 
 public class Url {
-    private static String API_URL ="http://advantagemart.co.in/Api/";
+    public static String API_URL ="http://ameygraphics.com/profitplus/public/api/";
+//    private static String API_URL ="http://ameygraphics.com/profitplus/public/api/";
+    public static String SEND_OTP_LOGIN=API_URL+"otp";
+    public static String REGISTER = "register";
+    public static String LOGIN= API_URL+"login";
+
     public static final String STR_PUSH = "pushnotification";
     public static String VERIFYREGISTER = API_URL+"send_sms";
     public static String VERIFYOTP = API_URL+"user_signup";

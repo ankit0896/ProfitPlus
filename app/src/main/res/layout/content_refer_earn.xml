@@ -117,11 +117,11 @@
                         android:layout_height="35dp"
                         android:layout_weight="1.6"
                         android:background="@drawable/back_refer_number"
-                        android:text="4"
                         android:fontFamily="@font/gilroy_semibold"
                         android:gravity="center"
-                        android:textColor="@color/colorWhite"
-                      android:textAlignment="center"></TextView>
+                        android:text="4"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"></TextView>
 
                     <View
                         android:layout_width="0dp"

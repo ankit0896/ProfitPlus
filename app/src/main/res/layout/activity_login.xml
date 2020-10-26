@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorRed"
-    tools:context=".activity.LoginActivity">
+    tools:context=".view.activity.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,48 +38,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/user_email"
-                        ></ImageView>
-
                     <EditText
+                        android:id="@+id/et_login_mobileNumber"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="4dp"
                         android:padding="8dp"
+                        android:drawableLeft="@drawable/ic_baseline_phone"
+                        android:drawablePadding="8dp"
+                        android:maxLength="10"
+                        android:inputType="number"
                         android:textSize="16sp"
                         android:fontFamily="@font/gilroy_regular"
                         android:background="@null"
-                        android:hint="@string/yourEmail"></EditText>
+                        android:hint="@string/yourMobileNumber"></EditText>
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_marginStart="60dp"
-                    android:background="#c0c0c0"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/user_password"
-                        ></ImageView>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="4dp"
-                        android:fontFamily="@font/gilroy_regular"
-                        android:textSize="16sp"
-                        android:padding="8dp"
-                        android:background="@null"
-                        android:hint="@string/yourPassword"></EditText>
-                </LinearLayout>
             </LinearLayout>
 
 

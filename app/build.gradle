@@ -13,6 +13,11 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -40,4 +45,15 @@ dependencies {
     implementation 'com.koushikdutta.ion:ion:2.2.1'
     //progress dialog
     implementation 'com.github.d-max:spots-dialog:1.1@aar'
+
+    // Retrofit & OkHttp
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+    // Butter Knife
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+
+    // Pin View
+    implementation 'com.chaos.view:pinview:1.4.4'
 }

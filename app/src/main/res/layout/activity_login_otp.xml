@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/alert"
+    tools:context=".view.activity.LoginOtpActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_login_otp_backbtn"
+            android:layout_width="25dp"
+            android:layout_height="24dp"
+            android:src="@drawable/back_btn"></ImageView>
+
+        <TextView
+            android:id="@+id/tv_title_login_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/gilroy_semibold"
+            android:text="@string/otp"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"></TextView>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/ll_login_otp_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/gilroy_bold"
+            android:text="Verify With OTP"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"></TextView>
+
+        <TextView
+            android:id="@+id/tv_login_otp_sms_sent_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/gilroy_light"
+            android:text="Sent view sms to"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/gilroy_semibold"
+            android:text="Enter 4 digit OTP"></TextView>
+
+        <com.chaos.view.PinView
+            android:id="@+id/otp_login_pin_view"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:cursorVisible="true"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cursorColor="@color/colorBlack"
+            app:cursorWidth="2dp"
+            app:hideLineWhenFilled="true"
+            app:itemCount="4"
+            app:itemHeight="48dp"
+            app:itemRadius="4dp"
+            app:itemSpacing="8dp"
+            app:itemWidth="48dp"
+            app:lineColor="@color/colorBlack"
+            app:lineWidth="2dp"
+            app:viewType="rectangle" />
+
+        <TextView
+            android:id="@+id/tv_login_otp_didotget_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/gilroy_light"
+            android:text="Didn't get the OTP?  RESEND OTP"></TextView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_login_send_otp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            app:cardBackgroundColor="@color/colorSkyBlue"
+            app:cardCornerRadius="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:text="@string/otp"
+                android:fontFamily="@font/gilroy_semibold"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"></TextView>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/gilroy_light"
+            android:text="Or"
+            android:textColor="@color/colorBlack"
+            android:textSize="20dp"></TextView>
+        <TextView
+            android:id="@+id/tv_login_with_password_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:fontFamily="@font/gilroy_light"
+            android:textColor="@color/colorBlack"
+            android:text="Continue with Password"></TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_login_password_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/gilroy_bold"
+            android:text="Enter Your Password"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"></TextView>
+
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/colorWhite"
+            app:cardCornerRadius="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_login_password_otp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="4dp"
+                        android:padding="8dp"
+                        android:drawableLeft="@drawable/ic_baseline_screen_lock"
+                        android:drawablePadding="8dp"
+                        android:maxLength="10"
+                        android:inputType="textPassword"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:background="@null"
+                        android:hint="@string/yourPassword"></EditText>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_login_password_otp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            app:cardBackgroundColor="@color/colorSkyBlue"
+            app:cardCornerRadius="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:text="@string/login"
+                android:fontFamily="@font/gilroy_semibold"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"></TextView>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_otp_login_back_to_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:text="Back"
+            android:fontFamily="@font/gilroy_light"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            ></TextView>
+    </LinearLayout>
+
+
+</RelativeLayout>

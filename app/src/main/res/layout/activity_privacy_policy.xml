@@ -2,52 +2,83 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerlayoutpp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawerlayoutpp"
     android:orientation="vertical"
-    tools:context=".activity.PrivacyPolicyActivity">
-
+    tools:context=".view.activity.PrivacyPolicyActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/pp_toolBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="6dp">
-
-        <ImageView
-            android:id="@+id/iv_pp_toggle"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            app:srcCompat="@drawable/ic_toggle_24"></ImageView>
-
-        <TextView
-            android:id="@+id/toolbar_title"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/pp_toolBar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:textColor="@color/colorBlack"
-            android:textSize="20sp"
-            android:fontFamily="@font/gilroy_regular"
-            android:layout_gravity="center"
-            android:text="@string/privacyandpolicy"></TextView>
+            android:padding="6dp">
 
-    </androidx.appcompat.widget.Toolbar>
+            <ImageView
+                android:id="@+id/iv_pp_toggle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/ic_toggle_24"></ImageView>
 
-        <LinearLayout
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/gilroy_regular"
+                android:text="@string/privacyandpolicy"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"></TextView>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginStart="10dp"
-                android:id="@+id/rv_privacy_policy_list"
+            <LinearLayout
+                android:id="@+id/llprivacylayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
-        </LinearLayout>
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_privacy_policy_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_light"
+                    android:gravity="center"
+                    android:textSize="18sp"></TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:text="Payment Condition"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/tv_privacy_policy_payment_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_light"
+                    android:gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="18sp"></TextView>
+            </LinearLayout>
+        </ScrollView>
 
 
     </LinearLayout>

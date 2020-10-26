@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.profitplus">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
@@ -10,34 +15,44 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.ReferAndEarnActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".activity.TermsAndConditionActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.FaqsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.PrivacyPolicyActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.SearchActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.HomeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.RegistrationActivity"
-            android:screenOrientation="portrait"/>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".view.activity.LoginOtpActivity"></activity>
+        <activity android:name=".view.activity.OtpActivity" />
         <activity
-            android:name=".activity.OnBoardActivity"
+            android:name=".view.activity.ReferAndEarnActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TermsAndConditionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.FaqsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.PrivacyPolicyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.RegistrationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.OnBoardActivity"
             android:hardwareAccelerated="false" />
-        <activity android:name=".activity.LoginActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.SplashActivity">
+        <activity
+            android:name=".view.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
