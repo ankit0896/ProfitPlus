@@ -1,39 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="5dp"
-    android:layout_marginTop="5dp"
-    android:orientation="vertical"
+    android:id="@+id/alert"
     tools:context=".view.fragments.StockFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_faqs_questions"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"></androidx.recyclerview.widget.RecyclerView>
-
-
-    <TextView
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/gilroy_bold"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:text="Answer"
-        android:textAlignment="center"
-        android:textColor="@color/colorBlack"
-        android:textSize="18sp"></TextView>
-
-    <TextView
-        android:id="@+id/tv_faqs_QnAs"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="1"
-        android:text="Answers"></TextView>
+        android:scrollbars="none"/>
 
 
-</LinearLayout>
+
+
+</RelativeLayout>

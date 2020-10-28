@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:layout_height="wrap_content"></TextView>
 
         </LinearLayout>

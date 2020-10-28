@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.RegistrationActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/relative_register"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/register_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorWhite"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/register_toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp">
+
+                <ImageView
+                    android:id="@+id/back_arrow_register"
+                    android:layout_width="25dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/back_btn"></ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:text="My Account"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20dp"></TextView>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/register_appbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="#c0c0c0" />
+
+                <EditText
+                    android:id="@+id/et_rFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:textColorHighlight="@color/registerFontColor"
+                    android:drawableLeft="@drawable/ic_baseline_person"
+                    android:drawablePadding="8dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@null"
+                    android:fontFamily="@font/gilroy_regular"
+                    android:hint="@string/firstName"
+                    android:padding="6dp"
+                    android:textSize="16sp"></EditText>
+
+                <EditText
+                    android:id="@+id/et_rLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:textColorHighlight="@color/registerFontColor"
+                    android:layout_marginEnd="10dp"
+                    android:drawableLeft="@drawable/ic_baseline_person"
+                    android:drawablePadding="8dp"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:fontFamily="@font/gilroy_regular"
+                    android:hint="@string/lastName"
+                    android:padding="6dp"
+                    android:textSize="16sp"></EditText>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#c0c0c0" />
+
+                <!--   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="0.5dp"
+                       android:layout_marginTop="8dp"
+                       android:background="#c0c0c0"></View>-->
+
+                <EditText
+                    android:id="@+id/et_rEmailId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="10dp"
+                    android:singleLine="true"
+                    android:textColorHighlight="@color/registerFontColor"
+                    android:drawableLeft="@drawable/ic_baseline_email"
+                    android:drawablePadding="8dp"
+                    android:background="@null"
+                    android:hint="@string/emailID"
+                    android:inputType="textEmailAddress"
+                    android:fontFamily="@font/gilroy_regular"
+                    android:padding="6dp"
+                    android:textSize="16sp"></EditText>
+
+                <EditText
+                    android:id="@+id/et_rMobileNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@null"
+                    android:editable="false"
+                    android:fontFamily="@font/gilroy_regular"
+                    android:drawableLeft="@drawable/ic_baseline_phone"
+                    android:drawablePadding="8dp"
+                    android:hint="@string/mobileNumber"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:textColorHighlight="@color/registerFontColor"
+                    android:textSize="16sp"></EditText>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#c0c0c0" />
+
+                <!--      <View
+                          android:layout_width="match_parent"
+                          android:layout_height="0.5dp"
+                          android:layout_marginTop="8dp"
+                          android:background="#c0c0c0"></View>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="5"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/gender"
+                        android:textColorHighlight="@color/registerFontColor"
+                        android:singleLine="true"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:textColor="@color/colorLightWhite"
+                        android:textSize="16sp"></TextView>
+
+
+                    <Spinner
+                        android:id="@+id/gender_spinner"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:textAlignment="textEnd"
+                        android:textColorHighlight="@color/registerFontColor"
+                        android:textColor="@color/colorBlack"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:textSize="16sp"></Spinner>
+
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="5"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1.5"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/country"
+                        android:textColorHighlight="@color/registerFontColor"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:textColor="@color/colorLightWhite"
+                        android:textSize="16sp"></TextView>
+
+
+                    <TextView
+                        android:id="@+id/tv_rCountry"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:drawablePadding="6dp"
+                        android:textColorHighlight="@color/registerFontColor"
+                        android:gravity="end"
+                        android:text="India"
+                        android:textColor="@color/colorBlack"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:textSize="16sp"></TextView>
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:layout_height="20dp"
+                        android:src="@drawable/arrow"></ImageView>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#c0c0c0" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_register_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/colorSkyBlue"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="Save Details"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"
+                        android:fontFamily="@font/gilroy_semibold"
+                        android:textSize="18sp"></TextView>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

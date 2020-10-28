@@ -29,15 +29,18 @@ import butterknife.ButterKnife;
 
 public class OtpActivity extends AppCompatActivity implements SignUpPresenter.SignUpSaveData {
 
-    @BindView(R.id.ll_register_layout) LinearLayout otpRegisterLayout;
-    @BindView(R.id.tv_sms_sent_to) TextView smsSentTo;
-    @BindView(R.id.otp_pin_view) PinView pinView;
-    @BindView(R.id.card_send_otp) CardView sendOtp;
-    @BindView(R.id.iv_otp_backbtn) ImageView backBtn;
-
-    String otp;
+    @BindView(R.id.ll_register_layout)
+    LinearLayout otpRegisterLayout;
+    @BindView(R.id.tv_sms_sent_to)
+    TextView smsSentTo;
+    @BindView(R.id.otp_pin_view)
+    PinView pinView;
+    @BindView(R.id.card_send_otp)
+    CardView sendOtp;
+    @BindView(R.id.iv_otp_backbtn)
+    ImageView backBtn;
     Intent intent;
-    String fName, lName, email, gender, country, mNumber, pass, repass;
+    String fName, lName, email, gender, country, mNumber, pass,otp;
     PreferenceManager manager;
     SignUpPresenter signUpPresenter;
 
@@ -59,8 +62,6 @@ public class OtpActivity extends AppCompatActivity implements SignUpPresenter.Si
     }
 
     private void initViews() {
-        intent = getIntent();
-        otp = this.intent.getStringExtra("otp");
         Bundle bundle = this.intent.getExtras();
         fName = bundle.getString("firstName");
         lName = bundle.getString("lastName");
@@ -69,7 +70,7 @@ public class OtpActivity extends AppCompatActivity implements SignUpPresenter.Si
         country = bundle.getString("country");
         mNumber = bundle.getString("mobileNumber");
         pass = bundle.getString("password");
-        repass = bundle.getString("repassword");
+        otp=bundle.getString("otp");
         pinView.setText(otp);
         smsSentTo.setText("Sent view sms to 91 " + mNumber);
         clickEvents();
@@ -79,11 +80,15 @@ public class OtpActivity extends AppCompatActivity implements SignUpPresenter.Si
         sendOtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (pinView.getText().toString().isEmpty()) {
+                String otpholder=pinView.getText().toString();
+                if (otpholder.isEmpty()) {
                     Snackbar.make(v, "Please Enter OTP", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
-                } else {
-                    verifyOTP(pinView.getText().toString(), fName, lName, email, gender, country, mNumber, pass, repass);
+                }else if (otp.equals(otpholder)){
+                    signUpPresenter.verifyAndSaveData(otpholder,fName,lName,email,gender,country,mNumber,pass);
+                }else {
+                    Snackbar.make(v, "Wrong otp please try again", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
                 }
             }
         });
@@ -94,10 +99,6 @@ public class OtpActivity extends AppCompatActivity implements SignUpPresenter.Si
                 onBackPressed();
             }
         });
-    }
-
-    private void verifyOTP(String otp, String fName, String lName, String email, String gender, String country, String mNumber, String pass, String repass) {
-       signUpPresenter.verifyAndSaveData(otp,fName,lName,email,gender,country,mNumber,pass,repass);
     }
 
     @Override

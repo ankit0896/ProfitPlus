@@ -10,25 +10,9 @@ public class UserModel {
     String country;
     String token;
     Boolean loginStatus;
-
-
-
     public UserModel() {
 
     }
-
-    public UserModel(String id, String fName, String lName, String email, String mobile, String gender, String country, String token, Boolean status) {
-        this.id = id;
-        this.fName = fName;
-        this.lName = lName;
-        this.email = email;
-        this.mobile = mobile;
-        this.gender = gender;
-        this.country = country;
-        this.token = token;
-        this.loginStatus = status;
-    }
-
     public UserModel(String id, String fName, String lName, String email, String mobile, String gender, String token, Boolean status) {
         this.id = id;
         this.fName = fName;
@@ -86,14 +70,6 @@ public class UserModel {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
     public String getToken() {

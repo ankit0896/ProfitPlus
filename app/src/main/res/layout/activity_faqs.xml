@@ -49,8 +49,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.8"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
                 app:tabSelectedTextColor="@color/colorBlack"
                 android:background="@color/colorWhite"
                 style="@style/MyTabLayout"
@@ -62,8 +62,9 @@
                 android:background="@color/colorWhite"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_weight="9.2"></androidx.viewpager.widget.ViewPager>
 
         </LinearLayout>

@@ -18,11 +18,14 @@ import com.google.android.material.snackbar.Snackbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LoginActivity extends AppCompatActivity implements SigninPresenter.LoginMobile {
+public class LoginActivity extends AppCompatActivity implements SigninPresenter.LoginMobile, View.OnClickListener {
 
-    @BindView(R.id.tv_new_user) TextView newuser;
-    @BindView(R.id.tv_btn_login) TextView login_bnt;
-    @BindView(R.id.et_login_mobileNumber) EditText loginMobile;
+    @BindView(R.id.tv_new_user)
+    TextView newuser;
+    @BindView(R.id.tv_btn_login)
+    TextView login_bnt;
+    @BindView(R.id.et_login_mobileNumber)
+    EditText loginMobile;
     private SigninPresenter presenter;
     String userMobileNumber;
 
@@ -43,28 +46,20 @@ public class LoginActivity extends AppCompatActivity implements SigninPresenter.
     }
 
     private void initView() {
-        clickEvents();
+        newuser.setOnClickListener(this);
+        login_bnt.setOnClickListener(this);
     }
-
-    private void clickEvents() {
-        newuser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));
+    @Override
+    public void onClick(View view) {
+        if (view==newuser){
+            startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));
+        }
+        if (view==login_bnt){
+            if (validateFields(view)) {
+                presenter.SignInMobile(userMobileNumber);
             }
-        });
-        login_bnt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (validateFields(v)) {
-                    loginUser(userMobileNumber);
-                }
-            }
-        });
-    }
+        }
 
-    private void loginUser(String mobile) {
-        presenter.SignInMobile(mobile);
     }
 
     private boolean validateFields(View v) {
@@ -101,4 +96,6 @@ public class LoginActivity extends AppCompatActivity implements SigninPresenter.
         Snackbar.make(getCurrentFocus(), "" + response, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
     }
+
+
 }

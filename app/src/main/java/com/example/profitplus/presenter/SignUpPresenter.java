@@ -66,7 +66,7 @@ public class SignUpPresenter {
             progressDialog.dismiss();
             signUpOTP.error("Please Enter valid mobile Numeber.");
         } else {
-            Call<OTPResponse> responseCall = RetrofitClient.getInstance().getMyApi().sendOTP(mobile, "");
+            Call<OTPResponse> responseCall = RetrofitClient.getInstance().getMyApi().sendOTP(mobile,"");
             responseCall.enqueue(new Callback<OTPResponse>() {
                 @Override
                 public void onResponse(Call<OTPResponse> call, Response<OTPResponse> response) {
@@ -98,9 +98,9 @@ public class SignUpPresenter {
         Send otp to mobile number
         This methods saves your data for Registration Part
    */
-    public void verifyAndSaveData(String otp, String fName, String lName, String email, String gender, String country, String mNumber, String pass, String repass) {
+    public void verifyAndSaveData(String otp, String fName, String lName, String email, String gender, String country, String mNumber, String pass) {
         progressDialog.show();
-        Call<RegisterSuccessResponse> responseCall = RetrofitClient.getInstance().getMyApi().verifyaAndRegister(otp, fName, lName, email, country, gender, mNumber, pass, repass);
+        Call<RegisterSuccessResponse> responseCall = RetrofitClient.getInstance().getMyApi().verifyaAndRegister(otp, fName, lName, email, country, gender, mNumber, pass);
         responseCall.enqueue(new Callback<RegisterSuccessResponse>() {
             @Override
             public void onResponse(Call<RegisterSuccessResponse> call, Response<RegisterSuccessResponse> response) {

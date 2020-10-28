@@ -9,27 +9,32 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.profitplus.R;
+import com.example.profitplus.constant.PreferenceManager;
+import com.example.profitplus.model.faqstockmodel.StockFaq;
+import com.example.profitplus.presenter.FAQPresenter;
+import com.example.profitplus.view.activity.FaqsActivity;
+import com.example.profitplus.view.activity.PrivacyPolicyActivity;
 import com.example.profitplus.view.adpater.FaqsStockAdapter;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class StockFragment extends Fragment implements FaqsStockAdapter.OnFaqsStockQuestionListner {
-
-
-
+public class StockFragment extends Fragment implements FAQPresenter.FAQPre {
     @BindView(R.id.rv_faqs_questions)
     RecyclerView rv_question_list;
-    @BindView(R.id.tv_faqs_QnAs)
-    TextView answer;
-
+    @BindView(R.id.alert)
+    RelativeLayout relativeLayout;
     FaqsStockAdapter faqsStockAdapter;
     View view;
-
-
+    private FAQPresenter presenter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,14 +46,31 @@ public class StockFragment extends Fragment implements FaqsStockAdapter.OnFaqsSt
     }
 
     private void init() {
-        faqsStockAdapter = new FaqsStockAdapter();
-        rv_question_list.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        rv_question_list.setAdapter(faqsStockAdapter);
+        presenter=new FAQPresenter(getContext(), StockFragment.this);
+        rv_question_list.setHasFixedSize(true);
+        rv_question_list.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        presenter.GetFaq(PreferenceManager.getInstance(getContext()).getCustomer().getToken());
     }
 
     @Override
-    public void onQuestionClick(int postion) {
+    public void success(List<StockFaq> faqArrayList) {
+        faqsStockAdapter = new FaqsStockAdapter(getContext(),faqArrayList);
+        rv_question_list.setAdapter(faqsStockAdapter);
+        faqsStockAdapter.notifyDataSetChanged();
 
-        answer.setText("");
+    }
+
+    @Override
+    public void error(String response) {
+        Snackbar snackbar = Snackbar
+                .make(relativeLayout, response, Snackbar.LENGTH_SHORT);
+        snackbar.show();
+    }
+
+    @Override
+    public void fail(String response) {
+        Snackbar snackbar = Snackbar
+                .make(relativeLayout, response, Snackbar.LENGTH_SHORT);
+        snackbar.show();
     }
 }
