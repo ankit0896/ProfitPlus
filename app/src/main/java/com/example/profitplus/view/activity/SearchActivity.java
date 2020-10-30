@@ -16,7 +16,7 @@ import com.example.profitplus.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.et_search) EditText seachText;
     @BindView(R.id.tv_searchBtn) TextView btnSearch;
@@ -36,16 +36,15 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        clickEvents();
+        btnSearch.setOnClickListener(this);
     }
 
-    private void clickEvents() {
-        btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchTxt = seachText.getText().toString().trim();
-                //TODO
-            }
-        });
+
+    @Override
+    public void onClick(View v) {
+        if(v==btnSearch){
+            searchTxt = seachText.getText().toString().trim();
+        }
     }
+
 }

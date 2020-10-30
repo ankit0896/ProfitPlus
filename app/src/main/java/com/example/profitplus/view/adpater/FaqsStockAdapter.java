@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.QuickContactBadge;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -21,10 +20,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class FaqsStockAdapter extends RecyclerView.Adapter<FaqsStockAdapter.MyFaqsStockViewHolder> {
-    List<StockFaq>stockFaqList;
+    List<StockFaq> stockFaqList;
     Context context;
-    int visibilitycount=0;
-    public FaqsStockAdapter( Context context,List<StockFaq> stockFaqList) {
+    int visibilitycount = 0;
+
+    public FaqsStockAdapter(Context context, List<StockFaq> stockFaqList) {
         this.stockFaqList = stockFaqList;
         this.context = context;
     }
@@ -33,25 +33,24 @@ public class FaqsStockAdapter extends RecyclerView.Adapter<FaqsStockAdapter.MyFa
     @NonNull
     @Override
     public MyFaqsStockViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_faqs_stock_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_faqs_stock_item, parent, false);
         return new MyFaqsStockViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyFaqsStockViewHolder holder, final int position) {
-        StockFaq stockFaq=stockFaqList.get(position);
+        StockFaq stockFaq = stockFaqList.get(position);
         holder.questions.setText(stockFaq.getQuestion());
         holder.answer.setText(stockFaq.getAnswer());
         holder.btnly.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (visibilitycount==0){
+                if (visibilitycount == 0) {
                     holder.answer.setVisibility(View.GONE);
-                    visibilitycount=1;
-                }
-                else{
+                    visibilitycount = 1;
+                } else {
                     holder.answer.setVisibility(View.VISIBLE);
-                    visibilitycount=0;
+                    visibilitycount = 0;
                 }
 
             }
@@ -72,11 +71,11 @@ public class FaqsStockAdapter extends RecyclerView.Adapter<FaqsStockAdapter.MyFa
         ImageView rightarrow;
         @BindView(R.id.btnly)
         RelativeLayout btnly;
+
         public MyFaqsStockViewHolder(@NonNull View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
-
 
 }

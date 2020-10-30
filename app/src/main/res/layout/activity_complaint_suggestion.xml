@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.EditProfileActivity">
-
+    tools:context=".view.activity.ComplaintSuggestionActivity">
 
     <RelativeLayout
-        android:id="@+id/relative_update_profile"
+        android:id="@+id/relative_complant_profile"
         android:layout_width="match_parent"
+
         android:layout_height="match_parent">
 
 
@@ -27,7 +27,7 @@
                 android:padding="6dp">
 
                 <ImageView
-                    android:id="@+id/back_arrow_register"
+                    android:id="@+id/back_arrow_cs"
                     android:layout_width="25dp"
                     android:layout_height="22dp"
                     android:src="@drawable/back_btn"></ImageView>
@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/gilroy_medium"
-                    android:text="My Account"
+                    android:text="Complant/Suggestions"
                     android:textAlignment="center"
                     android:textColor="@color/colorBlack"
                     android:textSize="20dp"></TextView>
@@ -63,7 +63,7 @@
                     android:background="#c0c0c0" />
 
                 <EditText
-                    android:id="@+id/et_epFirstName"
+                    android:id="@+id/et_cs_FirstName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -80,7 +80,7 @@
                     android:textSize="16sp"></EditText>
 
                 <EditText
-                    android:id="@+id/et_epLastName"
+                    android:id="@+id/et_cs_LastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -104,14 +104,8 @@
                     android:background="#c0c0c0" />
 
 
-                <!--   <View
-                       android:layout_width="match_parent"
-                       android:layout_height="0.5dp"
-                       android:layout_marginTop="8dp"
-                       android:background="#c0c0c0"></View>-->
-
                 <EditText
-                    android:id="@+id/et_epEmailId"
+                    android:id="@+id/et_cs_EmailId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -128,25 +122,6 @@
                     android:textColorHighlight="@color/registerFontColor"
                     android:textSize="16sp"></EditText>
 
-                <!--                <EditText-->
-                <!--                    android:id="@+id/et_rMobileNumber"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginStart="10dp"-->
-                <!--                    android:layout_marginTop="12dp"-->
-                <!--                    android:layout_marginEnd="10dp"-->
-                <!--                    android:background="@null"-->
-                <!--                    android:editable="false"-->
-                <!--                    android:fontFamily="@font/gilroy_regular"-->
-                <!--                    android:drawableLeft="@drawable/ic_baseline_phone"-->
-                <!--                    android:drawablePadding="8dp"-->
-                <!--                    android:hint="@string/mobileNumber"-->
-                <!--                    android:inputType="number"-->
-                <!--                    android:maxLength="10"-->
-                <!--                    android:padding="6dp"-->
-                <!--                    android:singleLine="true"-->
-                <!--                    android:textColorHighlight="@color/registerFontColor"-->
-                <!--                    android:textSize="16sp"></EditText>-->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
@@ -155,7 +130,7 @@
                     android:background="#c0c0c0" />
 
                 <EditText
-                    android:id="@+id/tv_epMobile"
+                    android:id="@+id/et_cs_mobile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -164,32 +139,15 @@
                     android:background="@null"
                     android:drawableLeft="@drawable/ic_baseline_phone"
                     android:drawablePadding="8dp"
-                    android:enabled="false"
                     android:fontFamily="@font/gilroy_regular"
+                    android:hint="@string/mobileNumber"
+                    android:inputType="phone"
+                    android:maxLength="10"
                     android:padding="6dp"
                     android:singleLine="true"
                     android:textColorHighlight="@color/registerFontColor"
                     android:textSize="16sp"></EditText>
 
-                <!--                <EditText-->
-                <!--                    android:id="@+id/et_rMobileNumber"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginStart="10dp"-->
-                <!--                    android:layout_marginTop="12dp"-->
-                <!--                    android:layout_marginEnd="10dp"-->
-                <!--                    android:background="@null"-->
-                <!--                    android:editable="false"-->
-                <!--                    android:fontFamily="@font/gilroy_regular"-->
-                <!--                    android:drawableLeft="@drawable/ic_baseline_phone"-->
-                <!--                    android:drawablePadding="8dp"-->
-                <!--                    android:hint="@string/mobileNumber"-->
-                <!--                    android:inputType="number"-->
-                <!--                    android:maxLength="10"-->
-                <!--                    android:padding="6dp"-->
-                <!--                    android:singleLine="true"-->
-                <!--                    android:textColorHighlight="@color/registerFontColor"-->
-                <!--                    android:textSize="16sp"></EditText>-->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
@@ -197,90 +155,22 @@
                     android:layout_marginBottom="10dp"
                     android:background="#c0c0c0" />
 
-                <!--      <View
-                          android:layout_width="match_parent"
-                          android:layout_height="0.5dp"
-                          android:layout_marginTop="8dp"
-                          android:background="#c0c0c0"></View>-->
-
-                <LinearLayout
+                <EditText
+                    android:id="@+id/et_cs_comment"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="10dp"
-                    android:orientation="horizontal"
+                    android:background="@null"
+                    android:fontFamily="@font/gilroy_regular"
+                    android:hint="@string/complaint"
+                    android:inputType="textMultiLine"
+                    android:overScrollMode="always"
                     android:padding="6dp"
-                    android:weightSum="5">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:fontFamily="@font/gilroy_regular"
-                        android:hint="@string/gender"
-                        android:singleLine="true"
-                        android:textColor="@color/colorLightWhite"
-                        android:textColorHighlight="@color/registerFontColor"
-                        android:textSize="16sp"></TextView>
-
-
-                    <Spinner
-                        android:id="@+id/ep_gender_spinner"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:fontFamily="@font/gilroy_medium"
-                        android:gravity="end"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/colorBlack"
-                        android:textColorHighlight="@color/registerFontColor"
-                        android:textSize="16sp"></Spinner>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="10dp"
-                    android:orientation="horizontal"
-                    android:padding="6dp"
-                    android:weightSum="5">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.5"
-                        android:fontFamily="@font/gilroy_regular"
-                        android:hint="@string/country"
-                        android:textColor="@color/colorLightWhite"
-                        android:textColorHighlight="@color/registerFontColor"
-                        android:textSize="16sp"></TextView>
-
-
-                    <TextView
-                        android:id="@+id/tv_rCountry"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:drawablePadding="6dp"
-                        android:fontFamily="@font/gilroy_medium"
-                        android:gravity="end"
-                        android:text="India"
-                        android:textColor="@color/colorBlack"
-                        android:textColorHighlight="@color/registerFontColor"
-                        android:textSize="16sp"></TextView>
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="20dp"
-                        android:layout_weight="0.5"
-                        android:src="@drawable/arrow"></ImageView>
-
-                </LinearLayout>
+                    android:scrollbars="vertical"
+                    android:textColorHighlight="@color/registerFontColor"
+                    android:textSize="16sp"></EditText>
 
                 <View
                     android:layout_width="match_parent"
@@ -291,7 +181,7 @@
 
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_update_details_card"
+                    android:id="@+id/btn_complant_card"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
@@ -309,7 +199,7 @@
                         android:fontFamily="@font/gilroy_semibold"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
-                        android:text="Save Details"
+                        android:text="Send"
                         android:textAlignment="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="18sp"></TextView>
@@ -321,6 +211,5 @@
 
 
     </RelativeLayout>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

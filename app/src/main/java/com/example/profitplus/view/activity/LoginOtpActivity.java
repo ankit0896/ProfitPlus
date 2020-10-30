@@ -28,7 +28,7 @@ import com.google.android.material.snackbar.Snackbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LoginOtpActivity extends AppCompatActivity implements SigninPresenter.LoginOTPMobile {
+public class LoginOtpActivity extends AppCompatActivity implements SigninPresenter.LoginOTPMobile, View.OnClickListener {
 
 
     @BindView(R.id.tv_login_with_password_text)
@@ -72,74 +72,66 @@ public class LoginOtpActivity extends AppCompatActivity implements SigninPresent
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.WHITE);
         }
-        presenter = new SigninPresenter(LoginOtpActivity.this, LoginOtpActivity.this);
-        ButterKnife.bind(this);
         initViews();
     }
 
     private void initViews() {
+        presenter = new SigninPresenter(LoginOtpActivity.this, LoginOtpActivity.this);
+        ButterKnife.bind(this);
         intent = getIntent();
         otp = intent.getStringExtra("OTP");
         mobileNumber = intent.getStringExtra("mobileNumber");
         smssentto.setText("Sent view sms to +91 " + mobileNumber);
         otploginPinView.setText(otp);
-        clickEvents();
+
+        continueWithPass.setOnClickListener(this);
+        backtootp.setOnClickListener(this);
+        loginOTP.setOnClickListener(this);
+        loginPassword.setOnClickListener(this);
+        back.setOnClickListener(this);
     }
 
-    private void clickEvents() {
-        continueWithPass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                otplayout.setVisibility(View.GONE);
-                passwordlayout.setVisibility(View.VISIBLE);
-                title.setText("Password");
-            }
-        });
-        backtootp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                otplayout.setVisibility(View.VISIBLE);
-                passwordlayout.setVisibility(View.GONE);
-                title.setText("OTP");
-            }
-        });
 
-        // Login with OTP -> OTP Button for Verification
-        loginOTP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (otploginPinView.getText().toString().isEmpty()) {
-                    Snackbar.make(v, "Please Enter OTP", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                } else {
-                    vertifyOTPWithMobile(otploginPinView.getText().toString(), mobileNumber);
-                }
+    @Override
+    public void onClick(View v) {
+        if (v == continueWithPass) {
+            otplayout.setVisibility(View.GONE);
+            passwordlayout.setVisibility(View.VISIBLE);
+            title.setText("Password");
+        }
+        if (v == backtootp) {
+            otplayout.setVisibility(View.VISIBLE);
+            passwordlayout.setVisibility(View.GONE);
+            title.setText("OTP");
+        }
+        if (v == loginOTP) {
+            String otpHolder = otploginPinView.getText().toString();
+            if (otpHolder.isEmpty()) {
+                Snackbar.make(v, "Please Enter OTP", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            } else if (otpHolder.equals(otp)) {
+                presenter.singinWithOtp(mobileNumber, otpHolder);
+            } else {
+                Snackbar.make(v, "Wrong Otp Please try again", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
-        });
+        }
 
-        loginPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (password.getText().toString().isEmpty()) {
-                    Snackbar.make(v, "Please Enter Password", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                } else {
-                    presenter.singInWithPassword(mobileNumber,password.getText().toString());
-                }
+        if (v == loginPassword) {
+            String pass = password.getText().toString();
+            if (pass.isEmpty()) {
+                Snackbar.make(v, "Please Enter Password", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            } else {
+                presenter.singInWithPassword(mobileNumber, pass);
             }
-        });
+        }
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        if (v == back) {
+            onBackPressed();
+        }
     }
 
-    private void vertifyOTPWithMobile(String otp, String mobileNumber) {
-        presenter.singinWithOtp(mobileNumber, otp);
-    }
 
     @Override
     public void success(String call, LoginSuccessResponse response) {
@@ -151,6 +143,7 @@ public class LoginOtpActivity extends AppCompatActivity implements SigninPresent
         model.setGender(mobileOTPUserModel.getGender());
         model.setMobile(mobileOTPUserModel.getMobile());
         model.setEmail(mobileOTPUserModel.getEmail());
+        model.setReferalCode(String.valueOf(mobileOTPUserModel.getReferralCode()));
         model.setToken(response.getAccessToken().getToken());
         model.setLoginStatus(true);
         PreferenceManager.getInstance(LoginOtpActivity.this).userLogin(model);
@@ -171,4 +164,5 @@ public class LoginOtpActivity extends AppCompatActivity implements SigninPresent
                 .make(relativeLayout, response, Snackbar.LENGTH_SHORT);
         snackbar.show();
     }
+
 }

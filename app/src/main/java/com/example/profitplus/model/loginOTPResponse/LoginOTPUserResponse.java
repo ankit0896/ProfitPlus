@@ -28,6 +28,17 @@ public class LoginOTPUserResponse {
     @SerializedName("expiry_date")
     @Expose
     private String expiryDate;
+    @SerializedName("referral_code")
+    @Expose
+    private Integer referralCode;
+
+    public Integer getReferralCode() {
+        return referralCode;
+    }
+
+    public void setReferralCode(Integer referralCode) {
+        this.referralCode = referralCode;
+    }
 
     public Integer getId() {
         return id;

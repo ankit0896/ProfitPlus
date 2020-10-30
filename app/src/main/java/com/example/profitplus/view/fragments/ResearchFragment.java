@@ -19,7 +19,6 @@ public class ResearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_research, container, false);
-
         return view;
     }
 }

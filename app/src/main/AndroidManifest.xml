@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.activity.EditProfileActivity"></activity>
+        <activity android:name=".view.activity.ComplaintSuggestionActivity"></activity>
+        <activity android:name=".view.activity.EditProfileActivity" />
         <activity android:name=".view.activity.LoginOtpActivity" />
         <activity android:name=".view.activity.OtpActivity" />
         <activity

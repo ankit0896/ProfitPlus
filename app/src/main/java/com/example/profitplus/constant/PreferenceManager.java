@@ -2,6 +2,8 @@ package com.example.profitplus.constant;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.widget.Toast;
+
 import com.example.profitplus.model.UserModel;
 public class PreferenceManager {
 
@@ -15,6 +17,7 @@ public class PreferenceManager {
     private static final String EMAIL_ID = "profitplus@gmail.com";
     private static final String MOBILE_NUMBER = "0000000";
     private static final String GENDER = "None";
+    private static final String REFERAL_CODE = "None";
     private static final String COUNTRY = "India";
     private static final String ID = "0";
 
@@ -30,6 +33,7 @@ public class PreferenceManager {
     }
 
     public void userLogin(UserModel user) {
+        Toast.makeText(ctx, ""+user.getReferalCode(), Toast.LENGTH_SHORT).show();
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(ID, user.getId());
@@ -40,6 +44,7 @@ public class PreferenceManager {
         editor.putString(GENDER, user.getGender());
         editor.putBoolean(LOGIN_STATUS, user.getLoginStatus());
         editor.putString(TOKEN, user.getToken());
+        editor.putString(REFERAL_CODE,user.getReferalCode());
         editor.apply();
     }
 
@@ -53,7 +58,8 @@ public class PreferenceManager {
                 sharedPreferences.getString(MOBILE_NUMBER,"NA"),
                 sharedPreferences.getString(GENDER, "NA"),
                 sharedPreferences.getString(TOKEN, "NA"),
-                sharedPreferences.getBoolean(LOGIN_STATUS, false)
+                sharedPreferences.getBoolean(LOGIN_STATUS, false),
+                sharedPreferences.getString(REFERAL_CODE,"NA")
         );
     }
 

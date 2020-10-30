@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -24,7 +25,7 @@ import com.google.android.material.snackbar.Snackbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RegistrationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, SignUpPresenter.SignUpOTP {
+public class RegistrationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, SignUpPresenter.SignUpOTP, View.OnClickListener {
 
     @BindView(R.id.back_arrow_register)
     ImageView backArrow;
@@ -71,28 +72,24 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Setting the ArrayAdapter data on the Spinner
         genderSpinner.setAdapter(aa);
-        clickEvents();
-
+        backArrow.setOnClickListener(this);
+        btn_registor.setOnClickListener(this);
     }
 
-    private void clickEvents() {
-        backArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
+    @Override
+    public void onClick(View v) {
+        if(v==backArrow){
+            onBackPressed();
+        }
+        if(v==btn_registor){
+            if (validateEmpty(v)) {
+                signUpPresenter.sendOtpregister(mobileNumber);
             }
-        });
-        btn_registor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (validateEmpty(view)) {
-                    signUpPresenter.sendOtpregister(mobileNumber);
-                }
-
-            }
-        });
-
+        }
     }
+
+
+
 
     private boolean validateEmpty(View view) {
         firstName = fName.getText().toString().trim();
@@ -117,7 +114,7 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
                     .setAction("Action", null).show();
             return false;
         }
-        if (!email.contains("@")) {
+        if (!TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()==false) {
             Snackbar.make(view, "Please Enter Valid Email Address", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             return false;
@@ -175,7 +172,7 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
         userBundle.putString("country", country);
         userBundle.putString("gender", gender);
         userBundle.putString("password", password);
-        userBundle.putString("otp",otp);
+        userBundle.putString("otp", otp);
         startActivity(new Intent(RegistrationActivity.this, OtpActivity.class).putExtras(userBundle));
     }
 

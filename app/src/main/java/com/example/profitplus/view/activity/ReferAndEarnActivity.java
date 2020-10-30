@@ -19,6 +19,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.profitplus.BuildConfig;
 import com.example.profitplus.R;
 import com.example.profitplus.constant.PreferenceManager;
 import com.google.android.material.navigation.NavigationView;
@@ -26,7 +27,7 @@ import com.google.android.material.navigation.NavigationView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ReferAndEarnActivity extends AppCompatActivity {
+public class ReferAndEarnActivity extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.drawerlayoutre)
     DrawerLayout drawerLayout;
@@ -87,23 +88,28 @@ public class ReferAndEarnActivity extends AppCompatActivity {
         loadMenuItemList();
 
         // Click Events
-        clickEvents();
+        toggle.setOnClickListener(this);
+        btnShare.setOnClickListener(this);
     }
 
-    private void clickEvents() {
-        toggle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawerLayout.openDrawer(GravityCompat.START);
+    @Override
+    public void onClick(View v) {
+        if(v==toggle){
+            drawerLayout.openDrawer(GravityCompat.START);
+        }
+        if(v==btnShare){
+            try {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Profit Plus");
+                String shareMessage= "\nLet me recommend you this application\n\n";
+                shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                startActivity(Intent.createChooser(shareIntent, "Share Via"));
+            } catch(Exception e) {
+                //e.toString();
             }
-        });
-
-        btnShare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO
-            }
-        });
+        }
     }
 
     private void loadMenuItemList() {
@@ -137,6 +143,9 @@ public class ReferAndEarnActivity extends AppCompatActivity {
                     startActivity(new Intent(ReferAndEarnActivity.this, FaqsActivity.class));
                     finish();
                 }
+                if (value.equals("My Account")) {
+                    startActivity(new Intent(ReferAndEarnActivity.this, EditProfileActivity.class));
+                }
                 if (value.equals("Logout")) {
                     startActivity(new Intent(ReferAndEarnActivity.this, OnBoardActivity.class));
                     PreferenceManager.clear();
@@ -147,4 +156,6 @@ public class ReferAndEarnActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

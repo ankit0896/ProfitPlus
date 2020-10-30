@@ -9,7 +9,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -27,8 +29,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class OtpActivity extends AppCompatActivity implements SignUpPresenter.SignUpSaveData {
+public class OtpActivity extends AppCompatActivity implements SignUpPresenter.SignUpSaveData, View.OnClickListener {
 
+    @BindView(R.id.alert)
+    RelativeLayout relativeLayout;
     @BindView(R.id.ll_register_layout)
     LinearLayout otpRegisterLayout;
     @BindView(R.id.tv_sms_sent_to)
@@ -62,6 +66,7 @@ public class OtpActivity extends AppCompatActivity implements SignUpPresenter.Si
     }
 
     private void initViews() {
+        intent = getIntent();
         Bundle bundle = this.intent.getExtras();
         fName = bundle.getString("firstName");
         lName = bundle.getString("lastName");
@@ -71,38 +76,36 @@ public class OtpActivity extends AppCompatActivity implements SignUpPresenter.Si
         mNumber = bundle.getString("mobileNumber");
         pass = bundle.getString("password");
         otp=bundle.getString("otp");
+        otp = bundle.getString("otp");
         pinView.setText(otp);
         smsSentTo.setText("Sent view sms to 91 " + mNumber);
-        clickEvents();
+        sendOtp.setOnClickListener(this);
+        backBtn.setOnClickListener(this);
     }
 
-    private void clickEvents() {
-        sendOtp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String otpholder=pinView.getText().toString();
-                if (otpholder.isEmpty()) {
-                    Snackbar.make(v, "Please Enter OTP", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }else if (otp.equals(otpholder)){
-                    signUpPresenter.verifyAndSaveData(otpholder,fName,lName,email,gender,country,mNumber,pass);
-                }else {
-                    Snackbar.make(v, "Wrong otp please try again", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }
+    @Override
+    public void onClick(View v) {
+        if (v == sendOtp) {
+            String otpHolder = pinView.getText().toString();
+            if (otpHolder.isEmpty()) {
+                Snackbar.make(v, "Please Enter OTP", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            } else if (otpHolder.equals(otp)) {
+                signUpPresenter.verifyAndSaveData(otpHolder, fName, lName, email, gender, country, mNumber, pass);
+            } else {
+                Snackbar.make(v, "Wrong otp please try again", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
-        });
+        }
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        if (v == backBtn) {
+            onBackPressed();
+        }
     }
 
     @Override
     public void success(RegisterSuccessResponse registerSuccessResponse) {
+      //  Toast.makeText(this, ""+registerSuccessResponse.getUser().getReferralCode(), Toast.LENGTH_SHORT).show();
         RegisterUserResponse otpUserResponse = registerSuccessResponse.getUser();
         UserModel model = new UserModel();
         model.setId(""+otpUserResponse.getId());
@@ -111,6 +114,7 @@ public class OtpActivity extends AppCompatActivity implements SignUpPresenter.Si
         model.setGender(otpUserResponse.getGender());
         model.setMobile(otpUserResponse.getMobile());
         model.setEmail(otpUserResponse.getEmail());
+        model.setReferalCode(String.valueOf(otpUserResponse.getReferralCode()));
         model.setToken(registerSuccessResponse.getAccessToken());
         model.setLoginStatus(true);
         PreferenceManager.getInstance(OtpActivity.this).userLogin(model);
@@ -119,13 +123,13 @@ public class OtpActivity extends AppCompatActivity implements SignUpPresenter.Si
 
     @Override
     public void fail(String response) {
-        Snackbar.make(getCurrentFocus(), "" + response, Snackbar.LENGTH_LONG)
+        Snackbar.make(relativeLayout, "" + response, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
     }
 
     @Override
     public void error(String response) {
-        Snackbar.make(getCurrentFocus(), "" + response, Snackbar.LENGTH_LONG)
+        Snackbar.make(relativeLayout, "" + response, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
     }
 }

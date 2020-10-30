@@ -28,7 +28,7 @@ import com.google.android.material.snackbar.Snackbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class TermsAndConditionActivity extends AppCompatActivity implements TermConditionPresenter.TNC{
+public class TermsAndConditionActivity extends AppCompatActivity implements TermConditionPresenter.TNC, View.OnClickListener {
 
     @BindView(R.id.lltnclayout)
     LinearLayout linearLayout;
@@ -43,7 +43,8 @@ public class TermsAndConditionActivity extends AppCompatActivity implements Term
     ImageView toggle;
     @BindView(R.id.nav_view_tc)
     NavigationView navigationView;
-    @BindView(R.id.tv_tncData) TextView tncdata;
+    @BindView(R.id.tv_tncData)
+    TextView tncdata;
     String[] listItem;
     TermConditionPresenter presenter;
 
@@ -57,7 +58,7 @@ public class TermsAndConditionActivity extends AppCompatActivity implements Term
             window.setStatusBarColor(getResources().getColor(R.color.colorRed));
         }
         ButterKnife.bind(this);
-        presenter = new TermConditionPresenter(TermsAndConditionActivity.this,TermsAndConditionActivity.this);
+        presenter = new TermConditionPresenter(TermsAndConditionActivity.this, TermsAndConditionActivity.this);
         initNavigation();
     }
 
@@ -72,17 +73,14 @@ public class TermsAndConditionActivity extends AppCompatActivity implements Term
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
         loadMenuItemList();
-        clickEvents();
-
+        toggle.setOnClickListener(this);
     }
 
-    private void clickEvents() {
-        toggle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
+    @Override
+    public void onClick(View v) {
+        if(v==toggle){
+            drawerLayout.openDrawer(GravityCompat.START);
+        }
     }
 
     private void loadMenuItemList() {
@@ -108,9 +106,15 @@ public class TermsAndConditionActivity extends AppCompatActivity implements Term
                     startActivity(new Intent(TermsAndConditionActivity.this, TermsAndConditionActivity.class));
                     finish();
                 }
+                if (value.equals("My Account")) {
+                    startActivity(new Intent(TermsAndConditionActivity.this, EditProfileActivity.class));
+                }
                 if (value.equals("Refer & Earn")) {
                     startActivity(new Intent(TermsAndConditionActivity.this, ReferAndEarnActivity.class));
                     finish();
+                }
+                if (value.equals("Complants/Suggestions")) {
+                    startActivity(new Intent(TermsAndConditionActivity.this, ComplaintSuggestionActivity.class));
                 }
                 if (value.equals("FAQs")) {
                     startActivity(new Intent(TermsAndConditionActivity.this, FaqsActivity.class));
@@ -149,4 +153,6 @@ public class TermsAndConditionActivity extends AppCompatActivity implements Term
         Snackbar.make(linearLayout, "" + response, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
     }
+
+
 }

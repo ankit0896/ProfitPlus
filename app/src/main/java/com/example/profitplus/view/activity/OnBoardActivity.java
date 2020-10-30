@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class OnBoardActivity extends AppCompatActivity {
+public class OnBoardActivity extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.view_pager) ViewPager viewPager;
     @BindView(R.id.SliderDots) LinearLayout SliderDots;
@@ -60,8 +60,19 @@ public class OnBoardActivity extends AppCompatActivity {
 
     private void initView() {
         loadData();
-        clickEvents();
+        btnlogin.setOnClickListener(this);
+        cardRegister.setOnClickListener(this);
+    }
 
+    @Override
+    public void onClick(View v) {
+        if(v==btnlogin){
+            startActivity(new Intent(OnBoardActivity.this, LoginActivity.class));
+        }
+        if(v==cardRegister){
+            startActivity(new Intent(OnBoardActivity.this, RegistrationActivity.class));
+
+        }
     }
 
     private void loadData() {
@@ -71,22 +82,6 @@ public class OnBoardActivity extends AppCompatActivity {
         list.add(new OnBoardItem(R.drawable.slider_4, "Phasellus viverra dolor at cursus congue", "Suspendisse potenti. Curabitur venenatis elementum elit, ut congue"));
         list.add(new OnBoardItem(R.drawable.slider_5, "Phasellus viverra dolor at cursus congue", "Suspendisse potenti. Curabitur venenatis elementum elit, ut congue"));
         setAdapter();
-    }
-
-    private void clickEvents() {
-        btnlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(OnBoardActivity.this, LoginActivity.class));
-            }
-        });
-
-        cardRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(OnBoardActivity.this, RegistrationActivity.class));
-            }
-        });
     }
 
 
@@ -131,5 +126,6 @@ public class OnBoardActivity extends AppCompatActivity {
         public void onPageScrollStateChanged(int arg0) {
         }
     };
+
 
 }

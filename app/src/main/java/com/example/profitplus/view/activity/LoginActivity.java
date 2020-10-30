@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,8 @@ import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements SigninPresenter.LoginMobile, View.OnClickListener {
 
+    @BindView(R.id.alert)
+    LinearLayout linearLayout;
     @BindView(R.id.tv_new_user)
     TextView newuser;
     @BindView(R.id.tv_btn_login)
@@ -28,7 +31,6 @@ public class LoginActivity extends AppCompatActivity implements SigninPresenter.
     EditText loginMobile;
     private SigninPresenter presenter;
     String userMobileNumber;
-
 
 
     @Override
@@ -49,29 +51,33 @@ public class LoginActivity extends AppCompatActivity implements SigninPresenter.
         newuser.setOnClickListener(this);
         login_bnt.setOnClickListener(this);
     }
+
     @Override
     public void onClick(View view) {
-        if (view==newuser){
+        if (view == newuser) {
             startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));
         }
-        if (view==login_bnt){
+        if (view == login_bnt) {
             if (validateFields(view)) {
                 presenter.SignInMobile(userMobileNumber);
             }
         }
+    }
 
+    private void loginUser(String mobile) {
+        presenter.SignInMobile(mobile);
     }
 
     private boolean validateFields(View v) {
         userMobileNumber = loginMobile.getText().toString().trim();
 
         if (userMobileNumber.isEmpty()) {
-            Snackbar.make(v, "Please Enter Mobile Number", Snackbar.LENGTH_LONG)
+            Snackbar.make(linearLayout, "Please Enter Mobile Number", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             return false;
         }
         if (userMobileNumber.length() < 10) {
-            Snackbar.make(v, "Please Enter Valid Mobile Number", Snackbar.LENGTH_LONG)
+            Snackbar.make(linearLayout, "Please Enter Valid Mobile Number", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             return false;
         }
@@ -87,15 +93,13 @@ public class LoginActivity extends AppCompatActivity implements SigninPresenter.
 
     @Override
     public void error(String response) {
-        Snackbar.make(getCurrentFocus(), "" + response, Snackbar.LENGTH_LONG)
+        Snackbar.make(linearLayout, "" + response, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
     }
 
     @Override
     public void fail(String response) {
-        Snackbar.make(getCurrentFocus(), "" + response, Snackbar.LENGTH_LONG)
+        Snackbar.make(linearLayout, "" + response, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
     }
-
-
 }

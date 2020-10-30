@@ -10,10 +10,12 @@ public class UserModel {
     String country;
     String token;
     Boolean loginStatus;
+    String referalCode;
     public UserModel() {
 
     }
-    public UserModel(String id, String fName, String lName, String email, String mobile, String gender, String token, Boolean status) {
+
+    public UserModel(String id, String fName, String lName, String email, String mobile, String gender, String token, Boolean loginStatus, String referalCode) {
         this.id = id;
         this.fName = fName;
         this.lName = lName;
@@ -21,7 +23,29 @@ public class UserModel {
         this.mobile = mobile;
         this.gender = gender;
         this.token = token;
-        this.loginStatus = status;
+        this.loginStatus = loginStatus;
+        this.referalCode = referalCode;
+    }
+
+    public UserModel(String id, String fName, String lName, String email, String mobile, String gender, String country, String token, Boolean loginStatus, String referalCode) {
+        this.id = id;
+        this.fName = fName;
+        this.lName = lName;
+        this.email = email;
+        this.mobile = mobile;
+        this.gender = gender;
+        this.country = country;
+        this.token = token;
+        this.loginStatus = loginStatus;
+        this.referalCode = referalCode;
+    }
+
+    public String getReferalCode() {
+        return referalCode;
+    }
+
+    public void setReferalCode(String regeralCode) {
+        this.referalCode = regeralCode;
     }
 
     public String getId() {

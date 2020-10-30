@@ -40,11 +40,12 @@ public class FAQPresenter {
         void fail(String response);
     }
     public void GetFaq(String token){
-        progressDialog.show();
+
         Call<FaqStockModel> responseCall = RetrofitClient.getInstance().getMyApi().getFaqStockData(token);
         responseCall.enqueue(new Callback<FaqStockModel>() {
             @Override
             public void onResponse(Call<FaqStockModel> call, Response<FaqStockModel> response) {
+                progressDialog.show();
                 if(response.isSuccessful()){
                     FaqStockModel faqStockModel = response.body();
                     try {

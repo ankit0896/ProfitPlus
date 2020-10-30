@@ -28,7 +28,7 @@ import com.google.android.material.snackbar.Snackbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PrivacyPolicyActivity extends AppCompatActivity implements PrivacyPolicyPresenter.PrivacyPolicyData {
+public class PrivacyPolicyActivity extends AppCompatActivity implements PrivacyPolicyPresenter.PrivacyPolicyData, View.OnClickListener {
 
     @BindView(R.id.pp_list_menu_items)
     ListView list_menu;
@@ -78,16 +78,15 @@ public class PrivacyPolicyActivity extends AppCompatActivity implements PrivacyP
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
         loadMenuItemList();
-        clickEvents();
+        toggle.setOnClickListener(this);
     }
 
-    private void clickEvents() {
-        toggle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
+
+    @Override
+    public void onClick(View v) {
+        if(v==toggle){
+            drawerLayout.openDrawer(GravityCompat.START);
+        }
     }
 
     private void loadMenuItemList() {
@@ -121,6 +120,12 @@ public class PrivacyPolicyActivity extends AppCompatActivity implements PrivacyP
                     startActivity(new Intent(PrivacyPolicyActivity.this, FaqsActivity.class));
                     finish();
                 }
+                if (value.equals("Complants/Suggestions")) {
+                    startActivity(new Intent(PrivacyPolicyActivity.this, ComplaintSuggestionActivity.class));
+                }
+                if (value.equals("My Account")) {
+                    startActivity(new Intent(PrivacyPolicyActivity.this, EditProfileActivity.class));
+                }
                 if (value.equals("Logout")) {
                     startActivity(new Intent(PrivacyPolicyActivity.this, OnBoardActivity.class));
                     PreferenceManager.clear();
@@ -150,4 +155,5 @@ public class PrivacyPolicyActivity extends AppCompatActivity implements PrivacyP
                 .setAction("Action", null).show();
 
     }
+
 }

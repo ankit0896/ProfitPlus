@@ -1,12 +1,12 @@
-package com.example.profitplus.model.registerResponse;
+package com.example.profitplus.model.profileUpdateResponse;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class RegisterUserResponse {
+public class ProfileUModel {
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private String id;
     @SerializedName("first_name")
     @Expose
     private String firstName;
@@ -25,18 +25,12 @@ public class RegisterUserResponse {
     @SerializedName("status")
     @Expose
     private Integer status;
-    @SerializedName("expiry_date")
-    @Expose
-    private String expiryDate;
-    @SerializedName("referral_code")
-    @Expose
-    private Integer referralCode;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -88,19 +82,4 @@ public class RegisterUserResponse {
         this.status = status;
     }
 
-    public String getExpiryDate() {
-        return expiryDate;
-    }
-
-    public void setExpiryDate(String expiryDate) {
-        this.expiryDate = expiryDate;
-    }
-
-    public Integer getReferralCode() {
-        return referralCode;
-    }
-
-    public void setReferralCode(Integer referralCode) {
-        this.referralCode = referralCode;
-    }
 }

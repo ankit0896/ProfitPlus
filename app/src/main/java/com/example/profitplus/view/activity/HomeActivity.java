@@ -18,6 +18,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.profitplus.R;
 import com.example.profitplus.view.adpater.HomePagerAdapter;
 import com.example.profitplus.constant.PreferenceManager;
@@ -27,7 +29,7 @@ import com.google.android.material.tabs.TabLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.tablayout)  TabLayout tabLayout;
     @BindView(R.id.pager) ViewPager viewPager;
@@ -49,13 +51,15 @@ public class HomeActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(getResources().getColor(R.color.colorRed));
         }
-        ButterKnife.bind(this);
         initViews();
     }
 
     private void initViews() {
+        ButterKnife.bind(this);
         initTabLayout();
         initNavigation();
+     //   Toast.makeText(this, ""+PreferenceManager.getInstance(this).getCustomer().getReferalCode(), Toast.LENGTH_SHORT).show();
+
     }
 
     private void initTabLayout() {
@@ -102,21 +106,17 @@ public class HomeActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
         loadMenuItemList();
-        clickEvents();
+        toggle.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v==toggle){
+            drawerLayout.openDrawer(GravityCompat.START);
+        }
     }
 
 
-    private void clickEvents() {
-
-        toggle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
-
-
-    }
 
 
     private void loadMenuItemList() {
@@ -138,6 +138,9 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(new Intent(HomeActivity.this, PrivacyPolicyActivity.class));
                     finish();
                 }
+                if (value.equals("My Account")) {
+                    startActivity(new Intent(HomeActivity.this, EditProfileActivity.class));
+                }
                 if (value.equals("Terms & Condition")) {
                     startActivity(new Intent(HomeActivity.this, TermsAndConditionActivity.class));
                     finish();
@@ -145,6 +148,9 @@ public class HomeActivity extends AppCompatActivity {
                 if (value.equals("Refer & Earn")) {
                     startActivity(new Intent(HomeActivity.this, ReferAndEarnActivity.class));
                     finish();
+                }
+                if (value.equals("Complants/Suggestions")) {
+                    startActivity(new Intent(HomeActivity.this, ComplaintSuggestionActivity.class));
                 }
                 if (value.equals("FAQs")) {
                     startActivity(new Intent(HomeActivity.this, FaqsActivity.class));
@@ -158,5 +164,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }

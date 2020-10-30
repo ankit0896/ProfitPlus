@@ -146,6 +146,12 @@ public class FaqsActivity extends AppCompatActivity {
                     startActivity(new Intent(FaqsActivity.this, TermsAndConditionActivity.class));
                     finish();
                 }
+                if (value.equals("My Account")) {
+                    startActivity(new Intent(FaqsActivity.this, EditProfileActivity.class));
+                }
+                if (value.equals("Complants/Suggestions")) {
+                    startActivity(new Intent(FaqsActivity.this, ComplaintSuggestionActivity.class));
+                }
                 if (value.equals("Refer & Earn")) {
                     startActivity(new Intent(FaqsActivity.this, ReferAndEarnActivity.class));
                     finish();
